@@ -4,7 +4,7 @@
 
 
 - **🌐 Website  -** [HERE](https://github.com/soymadip/My-Configs/tree/Website)
-- **💻 PC  -** 
+- **💻 PC  -** [HERE](https://github.com/soymadip/My-Configs/tree/Home#%EF%B8%8F-my-configs-)
 - **🗜 Plan  -** 
 
 </details>
