@@ -1,3 +1,5 @@
+ <h1 align="center"> ⚠️ Work in progress </h1>
+
 
 📚 Contents | Branches:-
 
@@ -18,7 +20,7 @@
        ⠀⣿⣿⠁⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠃⠀⠀
        ⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀
        ⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀
-        ⠀⢿⣿⡆⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀
+       ⠀⢿⣿⡆⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀
        ⠀⠸⣿⣧⡀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⡇⠀⠀⠀
        ⠀⠀⠛⢿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣷⣶⠂⠀⢠⣿⠀⠀⠀⠀⠀
       ⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⣽⣿⡏⠁⠀⠀⢸⣿⡟⠀⠀⠀⠀
@@ -30,8 +32,8 @@
 # ⚙️ My-Configs 🔧
 
 - This is my `setup` repo aka my Backup For most of the customisations i make at my PC/Other devices.
-  > Main config files are private because they may contain sensitive information..
-  > But information about them can be found here 
+  > Main config files of **some** apps are private as they may contain sensitive information..
+  > But overall info about them can be found here 
 
 ## Setup Overview
 
@@ -62,8 +64,8 @@
 <details>
   <summary>3. IDEs|Notes  </summary>
 
-- 📁 [VS Codium](./VS%20Codium/#vs-codium:-) --      FOSS Fork of VS Code.
-- 💉 [VS Code](./VS%20Codium/#vs-code:-) --          Microsoft's IDE for Various languages.
+- 📁 [VS Codium](./VS%20Codium/#vs-codium-) --       FOSS Fork of VS Code.
+- 💉 [VS Code](./VS%20Codium/#vs-code-) --           Microsoft's IDE for Various languages.
 - 🔷 [Obsidian](./Obsidian/) --                      "Second Brain" for Note Taking.
 </details>
 
@@ -76,36 +78,37 @@
 <details>
   <summary>5. Browsers</summary>
 
-- 🐺 [LibreWolf](./LibreWolf%20|%20Brave%20/) --**    A custom version of Firefox, focused on privacy, security and freedom.
+- 🐺 [LibreWolf](./LibreWolf%20|%20Brave%20/) --      A custom version of Firefox, focused on privacy, security and freedom.
 - 🌐 [Brave](https://bravebrowser.com) --             Chromium based Privacy focused Browser.
 </details>
 
 <details>
   <summary>6. Multimidia streaming</summary>
 
-- ▶ [MPV Player](./MPV/) --                            The Command line video player.
+- ▶  [MPV Player](./MPV/) --                           The Command line video player.
 - ⏸️ [VLC  Media Player](https://videolan.org/vlc) --  Videolan's on-the-go video player.
 - 🎧 [Elisa](https://apps.kde.org/elisa/) --           KDE's elegent media player.
-- 🎵🎶 [Spicetify](./Spicetify/)  -                    Customize Spotify linux client.
+- 🎵 [Spicetify](./Spicetify/)  -                      Customize Spotify linux client.
 </details>
 
 <details>
   <summary>7. Communication </summary>
 
-- **🎨 [BetterDiscord](betterdiscord/README.md) -**    Customizable Discord client.
-- **💬 Discord -**                                     Discord client.
-- **💬 Element -**                                     Matrix client.
-- **💬 Telegram -**                                    Telegram client.
-- **💬 Signal -**                                      Signal client.
-- **💬 Whatsapp -**                                    Unofficial Whatsapp client.
+- **🎨 [BetterDiscord](./Communication/) --**    Customizable Discord client.
+- **💬 Discord --**                                     Discord client.
+- **💬 Element --**                                     Matrix client.
+- **💬 Telegram --**                                    Telegram client.
+- **💬 Signal --**                                      Signal client.
+- **💬 Whatsapp --**                                    Unofficial Whatsapp client.
 </details>
 
 <details>
   <summary>- Misc</summary>
 
-- **🔐 [Bitwarden](./Bitwarden/) -**                   Password manager.
-- **🔄 [Syncthing](./SyncThing/) -**                   File sync between devices.
-- **🔏 [Authenticator Pro](./Authenticator%20Pro/) -** FOSS Authenticator App.
+- **🔐 [Bitwarden](./Bitwarden/) --**                   Password manager.
+- **🔄 [Syncthing](./SyncThing/) --**                   File sync between devices.
+- **🔏 [Authenticator Pro](./Authenticator%20Pro/) --** FOSS Authenticator App.
+- ⬇️ [1dm+ pro](./1dm+ pro)   --                         Download Manager.
 </details>
  
 
