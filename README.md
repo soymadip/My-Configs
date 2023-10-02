@@ -36,8 +36,36 @@
   > But overall info about them can be found here 
 
 ## Setup Overview
+<h2 align="center"> 💬 About me 👁️‍🗨️ </h2>
 
-- **💻 Distro:** KDE Neon (user edition)
+```zsh
+> neofetch
+```
+
+<img align="left" src="./Assets/eos.png" width="400px"/> 
+
+```zsh
+ soymadip@DESKTOP-SD 
+ ------------------- 
+ OS: EndeavourOS Linux x86_64 
+ Kernel: 6.5.3-arch1-1 
+ Uptime: 5 hours, 9 mins 
+ Packages: 1051 (pacman) 
+ Shell: zsh 5.9 
+ Resolution: 1920x1080 
+ DE: Plasma 5.27.8 
+ WM: KWin 
+ WM Theme: Bismuth 
+ Theme: [Plasma], Breeze [GTK2/3] 
+ Icons: Papirus-Dark [Plasma], Papirus-Dark [GTK2/3] 
+ Terminal: konsole 
+ Terminal Font: FiraCode Nerd Font Ret 10 
+ CPU: Intel i3-2120 (4) @ 3.300GHz 
+ GPU: Intel 2nd Generation Core Processor Family 
+ Memory: 2337MiB / 3820MiB 
+```
+
+- **💻 Distro:** Endevour OS
 - **🪮 Environment:** [KDE Plasma](./Plasma/) 
 - **🎨 Theme:** Nordic 
 - **🔳 Display Server:** X11
