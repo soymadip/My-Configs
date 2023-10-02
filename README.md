@@ -1,4 +1,4 @@
- <h1 align="center"> ⚠️ Work in progress </h1>
+ <h1 align="center"> ⚠️ Work in progress (60% completed) ⚠️</h1>
 
 
 📚 Contents | Branches:-
@@ -7,40 +7,39 @@
 - **💻 PC  -** [HERE](#⚙️-my-configs-🔧)
 - **🗜 Home Server  -** [HERE]()
 
+<h1 align="center">⚙️ My-Configs 🔧 </h1>
 
-       ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⣶⣶⣶⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-       ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠛⠉⠙⠛⠛⠛⠿⣿⣿⣿⣷⣤⠀⠀⠀⠀⠀    ⠀⠀
-      ⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣉⣻⣿⣿⣷⡀⠀⠀⠀⠀
-       ⠀⠀⠀⠀⠀⠀⠀⣸⣿⡏⠀⠀⠀⣠⣶⣾⣿⣿⣿⠿⠿⠿⢿⣿⣿⣿⣇⠀⠀⠀⠀
-       ⠀⠀⠀⠀⠀⠀⠀⣿⣿⠁⠀⠀⢰⣿⣿⣯⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣿⡄⠀⠀
-       ⠀⠀⣀⣤⣴⣶⣶⣿⡟⠀⠀⠀⢸⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣷⠀⠀
-       ⠀⢰⣿⡟⠋⠉⣹⣿⡇⠀⠀⠀⠘⣿⣿⣿⣿⣷⣦⣤⣤⣤⣶⣶⣶⣶⣿⣿⠀⠀⠀
-       ⠀⢸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀
-       ⠀⣸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠈⠙⠛⠿⢿⣿⣿⢟⡟⣻⣿⣿⡇⠀⠀⠀
-       ⠀⣿⣿⠁⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠃⠀⠀
-       ⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀
-       ⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀⠀
-       ⠀⢿⣿⡆⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀
-       ⠀⠸⣿⣧⡀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⡇⠀⠀⠀
-       ⠀⠀⠛⢿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣷⣶⠂⠀⢠⣿⠀⠀⠀⠀⠀
-      ⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⣽⣿⡏⠁⠀⠀⢸⣿⡟⠀⠀⠀⠀
-       ⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⢹⣿⡆⠀⠀⠀⣸⣿⡇⠀⠀⠀⠀
-      ⠀⠀⠀⠀⠀⠀⠀⢿⣿⣦⣄⣀⣠⣴⣿⣿⠀⠀⠈⠻⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀
-       ⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁
-
-
-# ⚙️ My-Configs 🔧
-
-- This is my `setup` repo aka my Backup For most of the customisations i make at my PC/Other devices.
+- This is my `setup` repo aka my Backup For `most of the customisations` i make at my PC/Other devices.
   > Main config files of **some** apps are private as they may contain sensitive information..
   > But overall info about them can be found here 
 
 ## Setup Overview
 
-- **💻 Distro:** KDE Neon (user edition)
+```zsh
+> neofetch
+```
+<img align="left" src="./Assets/neofetch.webp" width="160px"/>
+
+```csharp
+ soymadip@DESKTOP-SD 
+ ---------------------
+ OS: EndeavourOS Linux 
+ Kernel: 6.5.3-arch1-1 
+ Uptime: 5 hours, 9 mins 
+ Packages: 1051 (pacman) 
+ Shell: zsh 5.9 
+ DE: Plasma 5.27.8 (X11)
+ WM: KWin 
+ WM Theme: Bismuth 
+ Theme: Nordic[Plasma], Breeze[GTK2/3] 
+ Icons: Papirus-Dark [Plasma], Papirus-Dark [GTK2/3] 
+ Terminal: konsole 
+ Terminal Font: FiraCode Nerd Font Ret 10 
+ CPU: Intel i3-2120 (4) @ 3.300GHz 
+ Memory: 2337MiB / 3820MiB 
+```
+
 - **🪮 Environment:** [KDE Plasma](./Plasma/) 
-- **🎨 Theme:** Nordic 
-- **🔳 Display Server:** X11
 
 ## App Utilities:-
 ☢️ some apps that I use regularly:-
