@@ -99,7 +99,7 @@
 - ▶ [MPV Player](./MPV/) --                           The Command line video player.
 - ⏸️ [VLC  Media Player](https://videolan.org/vlc) --  Videolan's on-the-go video player.
 - 🎧 [Elisa](https://apps.kde.org/elisa/) --           KDE's elegent media player.
-- 🎵 [Spicetify](./Spicetify/)  -                      Customize Spotify linux client.
+- 🎵 [Spicetify](https://spicetify.app/)  -                      Customize Spotify linux client.
 </details>
 
 <details>
