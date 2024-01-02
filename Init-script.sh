@@ -35,8 +35,8 @@ pacman_packages=(
 
 aur_packages=(
     "kwin-bismuth-bin"
-    "pfetch-rs-bin"
     "archlinux-tweak-tool"
+    "pfetch-rs-bin"
 )
 
 
