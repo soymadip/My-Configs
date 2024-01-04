@@ -41,7 +41,7 @@ aur_packages=(
 
 
 fonts_directory="Assets/fonts"
-system_fonts_directory="usr/share/fonts"
+system_fonts_directory=".fonts"
 
 
 
@@ -55,12 +55,18 @@ NC='\033[0m' # No Color
 echo -e "${YELLOW}Starting script......${NC}"
 
 
-# Function to display headers
+# Function to display headers & footers
 print_header() {
-    echo -e "${GREEN}-----------------------------------------------${NC}"
+    echo -e "${YELLOW}-----------------------------------------------${NC}"
     echo -e "${GREEN}$1${NC}"
-    echo -e "${GREEN}-----------------------------------------------${NC}"
 }
+
+print_footer() {
+    echo -e "${GREEN}$1${NC}"
+    echo -e "${YELLOW}-----------------------------------------------${NC}"
+}
+
+
 
 
 # Check if a dependency is installed
@@ -82,6 +88,37 @@ check_dependency() {
 
 
 
+# Resize swap file:
+read -p "Do you wanna Resize your swapfile? [you must have already have a swapfile] (y/n):"   rsz_swapf
+if [ "$rsz_swapf" == "y" ] || [ "$rsz_swapf" == "Y" ] || [ -z "$rsz_swapf" ]; then
+  print_header "Resizing Swapfile:"
+  sudo swapoff -a 
+  sudo dd if=/dev/zero of=/swapfile bs=1G count=5 
+  sudo mkswap /swapfile
+  sudo swapon /swapfile
+  echo -e "${YELLOW}Total ammount of swapfile:${NC}"
+  grep SwapTotal /proc/meminfo
+  print_footer "Swapfile Resized to 5.4 GB."
+else
+    echo -e "${RED}swapfile size change skipped.${NC}"
+fi
+
+
+
+
+# Installing fonts:
+print_header "Installing custom Fonts"
+current_directory=$(pwd)
+pushd ~
+cp -r "$current_directory/$fonts_directory"/* "$system_fonts_directory"/
+popd
+sudo fc-cache -f -v
+print_footer "Fonts are installed."
+
+
+
+
+
 # Installing chaotic-AUR:
 read -p "Do you want to install chaotic-AUR? (y/n): " confirm_aur
 if [ "$confirm_aur" == "y" ] || [ "$confirm_aur" == "Y" ] || [ -z "$confirm_aur" ]; then
@@ -93,7 +130,7 @@ if [ "$confirm_aur" == "y" ] || [ "$confirm_aur" == "Y" ] || [ -z "$confirm_aur"
     echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
     echo -e "${GREEN}Updating Repositories...${NC}"
     sudo pacman -Syu
-    echo -e "${GREEN}Update complete.${NC}"
+    print_footer "Update complete."
 else
     echo -e "${RED}AUR Installation skipped.${NC}"
 fi
@@ -111,7 +148,7 @@ if [ "$confirm_pkgs" == "y" ] || [ "$confirm_pkgs" == "Y" ] || [ -z "$confirm_pk
     # AURs:
     echo -e "${YELLOW}Installing AUR packages,\nPlease carefully select options when asked:${NC}"
     yay -S "${aur_packages[@]}"
-    echo -e "${GREEN}AUR packages installed.${NC}"
+    print_footer "AUR packages installed."
 else
     echo -e "${RED}Packages' Installation skipped.${NC}"
 fi
@@ -120,24 +157,16 @@ fi
 
 
 
-# Installing fonts:
-print_header "Installing custom Fonts"
-sudo cp -r "$fonts_directory"/* "$system_fonts_directory"
-sudo fc-cache -f -v
-echo -e "${GREEN}Fonts are installed.${NC}"
-
-
-
-
 # Switching to ZSH Shell:
 read -p "Do you want to switch to Zsh shell? (y/n): " confirm_shell
 if [ "$confirm_shell" == "y" ] || [ "$confirm_shell" == "Y" ] || [ -z "$confirm_shell" ]; then
+    print_header "Changing shell"
     echo -e "${YELLOW}Checking if ZSH is installed${NC}"
     check_dependency zsh
     echo -e "${YELLOW}Changing SHELL to ZSH${NC}"
     chsh -s $(which zsh)
     echo -e "${GREEN}Shell changed for current user.${NC}"
-    echo -e "${RED}Log out and log back again for changes to take effect.${NC}"
+    print_footer "Log out and log back again for changes to take effect."
 else
     echo -e "${RED}Shell change skipped.${NC}"
 fi
