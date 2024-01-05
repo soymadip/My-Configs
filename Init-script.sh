@@ -41,7 +41,11 @@ aur_packages=(
 
 
 fonts_directory="Assets/fonts"
-system_fonts_directory=".fonts"
+system_fonts_directory=".fonts" #for only current user
+
+
+swap_file="/swapfile"
+swap_file_size="6G"
 
 
 
@@ -52,6 +56,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
+BLUE='\033[38;5;67m'
 echo -e "${YELLOW}Starting script......${NC}"
 
 
@@ -66,7 +71,9 @@ print_footer() {
     echo -e "${YELLOW}-----------------------------------------------${NC}"
 }
 
-
+log() { 
+    echo -e "->${BLUE} $1${NC}"
+}
 
 
 # Check if a dependency is installed
@@ -79,7 +86,7 @@ check_dependency() {
             sudo pacman -S --noconfirm "$dependency"
             echo -e "${GREEN}$dependency installed.${NC}"
         else
-            echo -e "${RED}$dependency not installed. Please install it before running this script.${NC}"
+            echo -e "${RED}$dependency is not installed. Please install it before running this script.${NC}"
             exit 1
         fi
     fi
@@ -89,16 +96,29 @@ check_dependency() {
 
 
 # Resize swap file:
-read -p "Do you wanna Resize your swapfile? [you must have already have a swapfile] (y/n):"   rsz_swapf
+echo -e "Do you wanna Create/Resize your swapfile? (y/n)\n(Your swap file will be of ${swap_file_size}B)"
+read -p "=>"   rsz_swapf
 if [ "$rsz_swapf" == "y" ] || [ "$rsz_swapf" == "Y" ] || [ -z "$rsz_swapf" ]; then
-  print_header "Resizing Swapfile:"
-  sudo swapoff -a 
-  sudo dd if=/dev/zero of=/swapfile bs=1G count=5 
-  sudo mkswap /swapfile
-  sudo swapon /swapfile
-  echo -e "${YELLOW}Total ammount of swapfile:${NC}"
-  grep SwapTotal /proc/meminfo
-  print_footer "Swapfile Resized to 5.4 GB."
+    if [ -f "$swap_file" ]; then
+        print_header "Swapfile already exists. Resizing to $swap_file_size..."
+        log "turning off swaps"
+        sudo swapoff -a
+        log "removing already present swapfile."
+        sudo rm "$swap_file"
+    else
+        print_header "Creating swapfile of size $swap_file_size..."
+    fi
+    log "creating new file of ${swap_file_size}B for swap."
+    sudo fallocate -l "$swap_file_size" "$swap_file"
+    log "changing permissions."
+    sudo chmod 600 "$swap_file"
+    log "making the ${swap_file} a swapfile."
+    sudo mkswap "$swap_file"
+    log "turning new swapfile on"
+    sudo swapon "$swap_file"
+    log "please check if everything is good:"
+    swapon --show
+    print_footer "Swapfile created and activated."
 else
     echo -e "${RED}swapfile size change skipped.${NC}"
 fi
@@ -107,13 +127,15 @@ fi
 
 
 # Installing fonts:
-print_header "Installing custom Fonts"
+print_header "Installing custom Fonts......"
 current_directory=$(pwd)
 pushd ~
+log "copying fonts to ~/$system_fonts_directory."
 cp -r "$current_directory/$fonts_directory"/* "$system_fonts_directory"/
 popd
+log "Rebuilding font cache."
 sudo fc-cache -f -v
-print_footer "Fonts are installed."
+print_footer "Fonts are installed......"
 
 
 
@@ -123,14 +145,17 @@ print_footer "Fonts are installed."
 read -p "Do you want to install chaotic-AUR? (y/n): " confirm_aur
 if [ "$confirm_aur" == "y" ] || [ "$confirm_aur" == "Y" ] || [ -z "$confirm_aur" ]; then
     print_header "Installing chaotic AUR"
+    log "Appending keys."
     sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
     sudo pacman-key --lsign-key 3056513887B78AEB
     sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
     sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+    log "Adding repo to /etc/pacman.conf."
     echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
-    echo -e "${GREEN}Updating Repositories...${NC}"
+    log "Updating Repositories."
     sudo pacman -Syu
-    print_footer "Update complete."
+    log "Update complete."
+    print_footer "Chaotic AUR is installed."
 else
     echo -e "${RED}AUR Installation skipped.${NC}"
 fi
@@ -161,11 +186,12 @@ fi
 read -p "Do you want to switch to Zsh shell? (y/n): " confirm_shell
 if [ "$confirm_shell" == "y" ] || [ "$confirm_shell" == "Y" ] || [ -z "$confirm_shell" ]; then
     print_header "Changing shell"
-    echo -e "${YELLOW}Checking if ZSH is installed${NC}"
+    log "Checking if ZSH is installed."
     check_dependency zsh
-    echo -e "${YELLOW}Changing SHELL to ZSH${NC}"
+    log "zsh is installed."
+    log "Changing SHELL to ZSH.."
     chsh -s $(which zsh)
-    echo -e "${GREEN}Shell changed for current user.${NC}"
+    log "Shell changed for current user."
     print_footer "Log out and log back again for changes to take effect."
 else
     echo -e "${RED}Shell change skipped.${NC}"
@@ -175,9 +201,10 @@ fi
 
 
 # Done
-echo -e "${YELLOW}Script completed.${NC}\nReboot is recommended, Do you wanna Reboot? (y/n)${NC}"
+echo -e "${YELLOW}Script completed.${NC}\n${RED}Reboot is recommended, Do you wanna Reboot? (y/n)${NC}"
 read -p "=>" cfrm_reboot
 if [ "$cfrm_reboot" == "y" ] || [ "$cfrm_reboot" == "Y" ] || [ -z "$cfrm_reboot" ]; then
+    log "rebooting..."
     sudo reboot
 else
     echo -e "${GREEN}Ok, Enjoy your system! and don't forget to reboot later..${NC}"
