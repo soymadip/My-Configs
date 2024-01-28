@@ -17,8 +17,7 @@ RED='\033[0;31m'
 #welcome system
 welcome() {
     clear
-    echo
-    echo -e "${YELLOW}Welcome to Init-Script......${NC}"
+    echo -e "\n${YELLOW}Welcome to Init-Script......${NC}"
 }
 
 
@@ -42,30 +41,34 @@ logger() {
 
 # log messages to screen
 log() {
-    if [ -n "$3" ]; then 
-        if [ "$2" == "error" ]; then
-            logger "$1${RED} <-[${NC}${3}${RED}]${NC}" "$2"
-        elif [ "$2" == "inform" ] || [ "$2" == "imp" ]; then
-            logger "$1${YELLOW} <-[${NC}${3}${YELLOW}]${NC}" "$2"
-        elif [ "$2" == "success" ]; then
-            logger "$1${GREEN} <-[${NC}${3}${GREEN}]${NC}" "$2"
+    local log_level=$2
+    
+    if [ -n "$3" ]; then
+        if [ "${log_level}" == "error" ]; then
+            logger "$1${RED} <-[${NC}${3}${RED}]${NC}" "${log_level}"
+        elif [ "${log_level}" == "inform" ] || [ "${log_level}" == "imp" ]; then
+            logger "$1${YELLOW} <-[${NC}${3}${YELLOW}]${NC}" "${log_level}"
+        elif [ "${log_level}" == "success" ]; then
+            logger "$1${GREEN} <-[${NC}${3}${GREEN}]${NC}" "${log_level}"
         else
-            logger "$1" "$2"
+            logger "$1" "${log_level}"
         fi
     else
-        logger "$1" "$2"
+        logger "$1" "${log_level}"
     fi
 }
 
 
 
 # ui for individual process
+# prompt asking for user authentication
 prompt() {
     echo -e "${AQUA}--------------------------${NC}"
     echo -e "${LAVENDER}[?] $1${NC} (y/n)"
     read -p "|==-> " $2
 }
 
+# footer after each module completes
 print_footer() {
     if [ -n "$1" ]; then
         if [ "$2" == "skipped" ]; then
@@ -84,8 +87,8 @@ print_footer() {
 
 
 
-# Import all scripts from a directory
-import_all() {
+# Import all files from a directory
+import_all_from() {
     local directory=$1
     local file_ext=$2
     
@@ -99,6 +102,7 @@ import_all() {
 check_dependency() {
     local DEPENDENCY=$1
     local REQUIRED=$2
+
     if ! pacman -Q "$DEPENDENCY" &> /dev/null; then
         log "Error: ${DEPENDENCY} is not installed." error "CHECKER"
         prompt "Do you want to install ${DEPENDENCY}?" confirm_install

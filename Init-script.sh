@@ -20,6 +20,7 @@ PACMAN_PACKAGES=(
     "kdeplasma-addons"
     "packagekit-qt5"
     "xdg-desktop-portal"
+    "dust"
     "kdialog"
     "spectacle"
     "ktorrent"
@@ -60,7 +61,7 @@ GRUB_FILE="/etc/default/grub"
 
 # importng modules:
 source Utilities/core-functions.sh   # mandatory
-import_all "Utilities" "sh"
+import_all_from "Utilities" "sh"
 
 
 welcome
