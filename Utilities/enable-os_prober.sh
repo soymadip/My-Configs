@@ -15,8 +15,9 @@ enable_os_prober() {
         log "done" success
         print_footer
     else
-        log "skipped enablig os-prober." imp    "OS-Prober"
-        print_footer "GRUB will not detect OS in other partitions" skipped
+        log "skipped enablig os-prober." imp "OS-Prober"
+        log "GRUB will not detect OS in other partitions" imp "OS-Prober"    
+        print_footer
     fi
 
 }

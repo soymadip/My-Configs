@@ -1,6 +1,8 @@
 # This script contains various decorative UI elements 
 # used within the main script to make sctipt more visually appiling.
 
+#____________________________________________UI Elements___________________________________________________
+
 # Color codes for various visuals
 NC='\033[0m' # No Color/escape code
 AQUA='\e[38;2;216;222;233m'
@@ -11,25 +13,11 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 
 
-#____________________________________________UI Elements___________________________________________________
-
-
-# ui for individual process:
-prompt() {
-    echo -e "${AQUA}--------------------------${NC}"
-    echo -e "${LAVENDER}[?] $1${NC} (y/n)"
-    read -p "|==-> " $2
-}
-
-print_footer() {
-    if [ -n "$1" ]; then
-        if [ "$2" == "skipped" ]; then
-            echo -e "${RED}[x]-> $1${NC}"
-        else
-            echo -e "${GREEN}[✔]=> $1${NC}"
-        fi
-    fi
-    echo -e "${AQUA}---------------------------------------------------------------${NC}"
+#welcome system:
+welcome() {
+    clear
+    echo
+    echo -e "${YELLOW}Welcome to Init-Script......${NC}"
 }
 
 
@@ -65,6 +53,29 @@ log() {
         logger "$1" "$2"
     fi
 }
+
+
+
+
+# ui for individual process:
+prompt() {
+    echo -e "${AQUA}--------------------------${NC}"
+    echo -e "${LAVENDER}[?] $1${NC} (y/n)"
+    read -p "|==-> " $2
+}
+
+print_footer() {
+    if [ -n "$1" ]; then
+        if [ "$2" == "skipped" ]; then
+            echo -e "${RED}[x]-> $1${NC}"
+        else
+            echo -e "${GREEN}[✔]=> $1${NC}"
+        fi
+    fi
+    echo -e "${AQUA}---------------------------------------------------------------${NC}"
+}
+
+
 
 
 

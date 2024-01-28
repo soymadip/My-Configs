@@ -66,9 +66,10 @@ for script in Utilities/*.sh; do
 done
 
 
+welcome
 
 #testing
-clear && echo -e "${YELLOW}Welcome to Init-Script......${NC}"
+change_meta_to_krunner
 enable_os_prober
 install_fonts
 log "brave is installed in system." error "TEST MESSAGE"
