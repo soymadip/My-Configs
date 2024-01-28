@@ -60,10 +60,7 @@ GRUB_FILE="/etc/default/grub"
 
 # importng modules:
 source Utilities/core-functions.sh   # mandatory
-
-for script in Utilities/*.sh; do
-  [ -e "$script" ] && [ "$(basename "$script")" != "core-functions.sh" ] && source "$script"
-done
+import_all "Utilities" "sh"
 
 
 welcome

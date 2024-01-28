@@ -13,7 +13,8 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 
 
-#welcome system:
+
+#welcome system
 welcome() {
     clear
     echo
@@ -25,6 +26,7 @@ welcome() {
 logger() {
     local log_message=$1
     local log_level=$2
+
     if [ "$log_level" == "error" ]; then
         echo -e "${RED}[X]-> $log_message${NC}"
     elif [ "$log_level" == "imp" ]; then
@@ -38,6 +40,7 @@ logger() {
     fi
 }
 
+# log messages to screen
 log() {
     if [ -n "$3" ]; then 
         if [ "$2" == "error" ]; then
@@ -56,8 +59,7 @@ log() {
 
 
 
-
-# ui for individual process:
+# ui for individual process
 prompt() {
     echo -e "${AQUA}--------------------------${NC}"
     echo -e "${LAVENDER}[?] $1${NC} (y/n)"
@@ -73,14 +75,25 @@ print_footer() {
         fi
     fi
     echo -e "${AQUA}---------------------------------------------------------------${NC}"
+    sleep 1
 }
 
 
 
-
-
-
 #______________________________________________Inbuilt Functions__________________________________________________
+
+
+
+# Import all scripts from a directory
+import_all() {
+    local directory=$1
+    local file_ext=$2
+    
+    for script in ${directory}/*.${file_ext}; do
+        [ -e "$script" ] && [ "$(basename "$script")" != "core-functions.sh" ] && source "$script"
+    done
+}
+
 
 # Check if a dependency is installed
 check_dependency() {

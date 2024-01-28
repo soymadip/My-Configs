@@ -1,6 +1,6 @@
-# Installing fonts:
 
 
+# Install fonts to current user 
 install_fonts() {
     prompt "Do you want to install fonts in /fonts folder" confirm_fontinstal
     if [ "$confirm_fontinstal" == "y" ] || [ "$confirm_fontinstal" == "Y" ] || [ -z "$confirm_fontinstal" ]; then
@@ -17,4 +17,3 @@ install_fonts() {
         print_footer "skipped Installing fonts" skipped
     fi
 }
-
